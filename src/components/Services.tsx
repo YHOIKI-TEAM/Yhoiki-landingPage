@@ -10,7 +10,9 @@ const services = [
     desc: "Pengembangan website modern, responsif, dan scalable sesuai kebutuhan bisnis Anda.",
     tag: "Core Service",
     large: true,
-    color: "from-[#1a2e1a] to-[#0f1a0f]",
+    bgClass: "bg-[#0f1a0f]",
+    hoverClass: "hover:bg-[#121f12]",
+    gridClass: "md:col-span-2 lg:col-span-2 lg:row-span-2", // Kiri (Besar)
   },
   {
     Icon: Smartphone,
@@ -18,69 +20,81 @@ const services = [
     desc: "Pengembangan aplikasi berbasis kebutuhan bisnis dan pengguna modern.",
     tag: "Mobile & Web",
     large: false,
-    color: "from-[#162016] to-[#0a0d0a]",
+    bgClass: "bg-[#4a7c59]/5",
+    hoverClass: "hover:bg-[#4a7c59]/10",
+    gridClass: "md:col-span-2 lg:col-span-2", // Kanan Atas (Melebar)
   },
   {
     Icon: Palette,
     title: "Visual Branding",
-    desc: "Pengembangan identitas visual dan desain digital yang modern, konsisten, dan relevan untuk kebutuhan brand serta bisnis di era digital.",
+    desc: "Pengembangan identitas visual dan desain digital yang modern, konsisten, dan relevan.",
     tag: "Design",
     large: false,
-    color: "from-[#162016] to-[#0a0d0a]",
+    bgClass: "bg-[#0f1a0f]",
+    hoverClass: "hover:bg-[#121f12]",
+    gridClass: "md:col-span-1 lg:col-span-1", // Kanan Bawah (Kiri)
   },
   {
     Icon: Bot,
     title: "Digital Solutions",
-    desc: "Menyediakan solusi teknologi untuk mendukung transformasi digital bisnis dan organisasi.",
+    desc: "Menyediakan solusi teknologi untuk mendukung transformasi digital bisnis Anda.",
     tag: "AI & Automation",
     large: false,
-    color: "from-[#1a2e1a] to-[#0f1a0f]",
+    bgClass: "bg-[#4a7c59]/5",
+    hoverClass: "hover:bg-[#4a7c59]/10",
+    gridClass: "md:col-span-1 lg:col-span-1", // Kanan Bawah (Kanan)
   },
 ];
 
 function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
   return (
-    <div
-      className={`group pb-2 ${service.large ? "lg:col-span-2 lg:row-span-2" : ""}`}
-      style={{ animationDelay: `${index * 100}ms` }}
-    >
+    <div className={`group ${service.gridClass}`}>
       <div
         className={`
           fade-up h-full relative rounded-2xl border border-[#4a7c59]/20
-          bg-gradient-to-br ${service.color} p-6 overflow-hidden
-          transition-all duration-500
-          group-hover:border-[#4a7c59]/50
-          group-hover:shadow-lg group-hover:shadow-[#4a7c59]/10
-          group-hover:-translate-y-1
+          ${service.bgClass} p-6 lg:p-8 overflow-hidden
+          transition-colors duration-500 ${service.hoverClass}
+          flex flex-col justify-between
         `}
+        style={{ transitionDelay: `${index * 100}ms` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-[#4a7c59]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-24 h-24 rounded-full bg-[#4a7c59]/5 -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700 pointer-events-none" />
+        {/* Background Pattern for Large Card */}
+        {service.large && (
+          <div className="pointer-events-none absolute top-0 left-1/2 -mt-2 -ml-20 h-full w-full [mask-image:linear-gradient(white,transparent)] opacity-20">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#4a7c59_1px,transparent_1px)] bg-[size:24px] mix-blend-overlay" />
+          </div>
+        )}
 
-        <div className="relative z-10">
-          <div className="flex items-start justify-between mb-4">
-            <div className="w-10 h-10 rounded-xl bg-[#4a7c59]/15 border border-[#4a7c59]/25 flex items-center justify-center">
-              <service.Icon size={18} className="text-[#86efac]" />
+        {/* Subtle glow effect */}
+        <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-[#4a7c59]/15 -translate-y-1/2 translate-x-1/2 group-hover:scale-110 transition-transform duration-700 pointer-events-none blur-3xl" />
+
+        <div className="relative z-10 flex-1">
+          <div className="flex items-start justify-between mb-6">
+            <div className="w-12 h-12 rounded-xl bg-[#4a7c59]/20 border border-[#4a7c59]/40 flex items-center justify-center">
+              <service.Icon size={24} className="text-[#86efac]" />
             </div>
-            <span className="text-xs px-2.5 py-1 rounded-full border border-[#4a7c59]/30 text-[#86efac] bg-[#4a7c59]/10">
+            <span className="text-xs px-3 py-1.5 rounded-full border border-[#4a7c59]/30 text-[#86efac] bg-[#4a7c59]/10 font-medium">
               {service.tag}
             </span>
           </div>
 
-          <h3 className={`font-bold text-[#f0fdf4] mb-2 ${service.large ? "text-2xl" : "text-lg"}`}>
+          <h3 className={`font-bold text-[#f0fdf4] mb-3 ${service.large ? "text-3xl" : "text-xl"}`}>
             {service.title}
           </h3>
           <p className={`text-[#a7c9b4] leading-relaxed ${service.large ? "text-base" : "text-sm"}`}>
             {service.desc}
           </p>
-
-          {service.large && (
-            <div className="mt-6 flex items-center gap-2 text-[#86efac] text-sm font-medium cursor-pointer">
-              <span>Pelajari lebih lanjut</span>
-              <ChevronRight size={15} />
-            </div>
-          )}
         </div>
+
+        {/* Learn More link for large card pinned to bottom */}
+        {service.large && (
+          <div className="relative z-10 mt-8 flex items-center gap-2 text-[#86efac] text-sm font-medium cursor-pointer group/link w-fit">
+            <span className="relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-[#86efac] after:transition-transform after:duration-300 group-hover/link:after:origin-bottom-left group-hover/link:after:scale-x-100">
+              Pelajari lebih lanjut
+            </span>
+            <ChevronRight size={16} className="transition-transform duration-300 group-hover/link:translate-x-1" />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -91,40 +105,54 @@ export default function Services() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
-      { threshold: 0.05 }
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.1 }
     );
     ref.current?.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section id="services" ref={ref} className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-20" />
+    <section id="services" ref={ref} className="relative py-24 overflow-hidden bg-[#0a0d0a]">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-dots opacity-20" />
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_50%_50%,rgba(74,124,89,0.05)_0%,transparent_60%)]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <div className="fade-up flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-12 bg-[#4a7c59]" />
-            <span className="text-[#86efac] text-sm tracking-widest uppercase">Layanan Kami</span>
-            <div className="h-px w-12 bg-[#4a7c59]" />
-          </div>
-          <h2 className="fade-up text-4xl md:text-5xl font-bold text-[#f0fdf4] mb-4">
+        {/* Section Header */}
+        <div className="fade-up mx-auto mb-16 max-w-2xl text-center">
+          
+          <h2 className="text-4xl font-extrabold tracking-tight text-[#f0fdf4] lg:text-5xl mb-4">
             Apa yang Kami Tawarkan
           </h2>
-          <p className="fade-up text-[#a7c9b4] max-w-xl mx-auto">
-            Layanan lengkap untuk kebutuhan transformasi digital bisnis Anda, dari pengembangan
-            hingga strategi digital yang komprehensif.
+          <p className="text-[#a7c9b4] text-sm md:text-base">
+            Layanan lengkap untuk kebutuhan transformasi digital bisnis Anda, dari pengembangan hingga strategi digital yang komprehensif.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 grid-rows-auto gap-4">
-          <ServiceCard service={services[0]} index={0} />
-          {services.slice(1).map((s, i) => (
-            <ServiceCard key={s.title} service={s} index={i + 1} />
+        {/* Bento Box Grid (Sekarang pakai grid-cols-4) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {services.map((s, i) => (
+            <ServiceCard key={s.title} service={s} index={i} />
           ))}
         </div>
       </div>
+
+      <style dangerouslySetInnerHTML={{__html: `
+        .fade-up {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-up.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}} />
     </section>
   );
 }
