@@ -1,22 +1,28 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-plus-jakarta",
+});
 
 export const metadata: Metadata = {
-  title: "PT Yhoiki Digital Nusantara — Beyond Limits Beyond Imaginations",
-  description:
-    "Perusahaan teknologi digital terdepan yang berfokus pada pengembangan produk digital berbasis software (SaaS), AI, Blockchain, dan teknologi modern lainnya.",
-  keywords: ["SaaS", "AI", "Blockchain", "Website Development", "App Development", "Digital Solutions"],
+  title: "Yhoiki Digital Nusantara - Your Partner in Digital Transformation",
+  description: "Beyond Limits, Beyond Imaginations",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="id" className="scroll-smooth">
-      <body className={inter.className}>{children}</body>
+    <html lang="id">
+      <body className={`${plusJakarta.variable} bg-[#0a0d0a] font-sans text-white antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }

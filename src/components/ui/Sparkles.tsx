@@ -1,8 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-
-interface Sparkle {
+interface Kerlip {
   id: number;
   x: number;
   y: number;
@@ -12,8 +10,8 @@ interface Sparkle {
   delay: number;
 }
 
-const generateSparkles = (count: number): Sparkle[] =>
-  Array.from({ length: count }, (_, i) => ({
+const buatDaftarKerlip = (jumlah: number): Kerlip[] =>
+  Array.from({ length: jumlah }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
@@ -23,25 +21,36 @@ const generateSparkles = (count: number): Sparkle[] =>
     delay: Math.random() * 4,
   }));
 
+function warnaKerlip(id: number): string {
+  if (id % 3 === 0) return "#86efac";
+  if (id % 3 === 1) return "#4a7c59";
+  return "#d1fae5";
+}
+
+function TitikKerlip({ kerlip }: { kerlip: Kerlip }) {
+  return (
+    <div
+      className="absolute rounded-full"
+      style={{
+        left: `${kerlip.x}%`,
+        top: `${kerlip.y}%`,
+        width: `${kerlip.size}px`,
+        height: `${kerlip.size}px`,
+        backgroundColor: warnaKerlip(kerlip.id),
+        opacity: kerlip.opacity,
+        animation: `pulse ${kerlip.duration}s ease-in-out ${kerlip.delay}s infinite`,
+      }}
+    />
+  );
+}
+
 export default function Sparkles({ count = 40 }: { count?: number }) {
-  const sparkles = generateSparkles(count);
+  const daftarKerlip = buatDaftarKerlip(count);
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {sparkles.map((s) => (
-        <div
-          key={s.id}
-          className="absolute rounded-full"
-          style={{
-            left: `${s.x}%`,
-            top: `${s.y}%`,
-            width: `${s.size}px`,
-            height: `${s.size}px`,
-            backgroundColor: s.id % 3 === 0 ? "#86efac" : s.id % 3 === 1 ? "#4a7c59" : "#d1fae5",
-            opacity: s.opacity,
-            animation: `pulse ${s.duration}s ease-in-out ${s.delay}s infinite`,
-          }}
-        />
+    <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      {daftarKerlip.map((kerlip) => (
+        <TitikKerlip key={kerlip.id} kerlip={kerlip} />
       ))}
     </div>
   );

@@ -3,19 +3,33 @@
 import { cn } from "@/lib/utils";
 import { HTMLMotionProps, motion } from "framer-motion";
 
-export const GRADIENT_ANGLES = {
+export const SUDUT_GRADIENT = {
   top: 0,
   right: 90,
   bottom: 180,
   left: 270,
 };
 
-export type ProgressiveBlurProps = {
-  direction?: keyof typeof GRADIENT_ANGLES;
+export type PropsProgressiveBlur = {
+  direction?: keyof typeof SUDUT_GRADIENT;
   blurLayers?: number;
   className?: string;
   blurIntensity?: number;
 } & HTMLMotionProps<"div">;
+
+function buatGradientLapisan(index: number, segmentSize: number, sudut: number) {
+  const titikGradient = [
+    index * segmentSize,
+    (index + 1) * segmentSize,
+    (index + 2) * segmentSize,
+    (index + 3) * segmentSize,
+  ].map(
+    (posisi, posisiIndex) =>
+      `rgba(0, 0, 0, ${posisiIndex === 1 || posisiIndex === 2 ? 1 : 0}) ${posisi * 100}%`
+  );
+
+  return `linear-gradient(${sudut}deg, ${titikGradient.join(", ")})`;
+}
 
 export function ProgressiveBlur({
   direction = "bottom",
@@ -23,29 +37,14 @@ export function ProgressiveBlur({
   className,
   blurIntensity = 0.25,
   ...props
-}: ProgressiveBlurProps) {
-  const layers = Math.max(blurLayers, 2);
-  const segmentSize = 1 / (blurLayers + 1);
+}: PropsProgressiveBlur) {
+  const jumlahLapisan = Math.max(blurLayers, 2);
+  const ukuranSegmen = 1 / (blurLayers + 1);
 
   return (
     <div className={cn("relative", className)}>
-      {Array.from({ length: layers }).map((_, index) => {
-        const angle = GRADIENT_ANGLES[direction];
-        const gradientStops = [
-          index * segmentSize,
-          (index + 1) * segmentSize,
-          (index + 2) * segmentSize,
-          (index + 3) * segmentSize,
-        ].map(
-          (pos, posIndex) =>
-            `rgba(0, 0, 0, ${
-              posIndex === 1 || posIndex === 2 ? 1 : 0
-            }) ${pos * 100}%`
-        );
-
-        const gradient = `linear-gradient(${angle}deg, ${gradientStops.join(
-          ", "
-        )})`;
+      {Array.from({ length: jumlahLapisan }).map((_, index) => {
+        const gradient = buatGradientLapisan(index, ukuranSegmen, SUDUT_GRADIENT[direction]);
 
         return (
           <motion.div

@@ -5,7 +5,7 @@ import { useMotionValue, animate, motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import useMeasure from "react-use-measure";
 
-type InfiniteSliderProps = {
+type PropsInfiniteSlider = {
   children: React.ReactNode;
   gap?: number;
   duration?: number;
@@ -23,65 +23,54 @@ export function InfiniteSlider({
   direction = "horizontal",
   reverse = false,
   className,
-}: InfiniteSliderProps) {
-  const [currentDuration, setCurrentDuration] = useState(duration);
+}: PropsInfiniteSlider) {
+  const [durasiSaatIni, setDurasiSaatIni] = useState(duration);
   const [ref, { width, height }] = useMeasure();
-  const translation = useMotionValue(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const translasi = useMotionValue(0);
+  const [isTransisi, setIsTransisi] = useState(false);
   const [key, setKey] = useState(0);
 
   useEffect(() => {
     let controls;
-    const size = direction === "horizontal" ? width : height;
-    const contentSize = size + gap;
-    const from = reverse ? -contentSize / 2 : 0;
-    const to = reverse ? 0 : -contentSize / 2;
+    const ukuran = direction === "horizontal" ? width : height;
+    const ukuranKonten = ukuran + gap;
+    const dari = reverse ? -ukuranKonten / 2 : 0;
+    const ke = reverse ? 0 : -ukuranKonten / 2;
 
-    if (isTransitioning) {
-      controls = animate(translation, [translation.get(), to], {
+    if (isTransisi) {
+      controls = animate(translasi, [translasi.get(), ke], {
         ease: "linear",
-        duration:
-          currentDuration * Math.abs((translation.get() - to) / contentSize),
+        duration: durasiSaatIni * Math.abs((translasi.get() - ke) / ukuranKonten),
         onComplete: () => {
-          setIsTransitioning(false);
+          setIsTransisi(false);
           setKey((prevKey) => prevKey + 1);
         },
       });
     } else {
-      controls = animate(translation, [from, to], {
+      controls = animate(translasi, [dari, ke], {
         ease: "linear",
-        duration: currentDuration,
+        duration: durasiSaatIni,
         repeat: Infinity,
         repeatType: "loop",
         repeatDelay: 0,
         onRepeat: () => {
-          translation.set(from);
+          translasi.set(dari);
         },
       });
     }
 
     return controls?.stop;
-  }, [
-    key,
-    translation,
-    currentDuration,
-    width,
-    height,
-    gap,
-    isTransitioning,
-    direction,
-    reverse,
-  ]);
+  }, [key, translasi, durasiSaatIni, width, height, gap, isTransisi, direction, reverse]);
 
-  const hoverProps = durationOnHover
+  const propsHover = durationOnHover
     ? {
         onHoverStart: () => {
-          setIsTransitioning(true);
-          setCurrentDuration(durationOnHover);
+          setIsTransisi(true);
+          setDurasiSaatIni(durationOnHover);
         },
         onHoverEnd: () => {
-          setIsTransitioning(true);
-          setCurrentDuration(duration);
+          setIsTransisi(true);
+          setDurasiSaatIni(duration);
         },
       }
     : {};
@@ -91,14 +80,12 @@ export function InfiniteSlider({
       <motion.div
         className="flex w-max"
         style={{
-          ...(direction === "horizontal"
-            ? { x: translation }
-            : { y: translation }),
+          ...(direction === "horizontal" ? { x: translasi } : { y: translasi }),
           gap: `${gap}px`,
           flexDirection: direction === "horizontal" ? "row" : "column",
         }}
         ref={ref}
-        {...hoverProps}
+        {...propsHover}
       >
         {children}
         {children}
