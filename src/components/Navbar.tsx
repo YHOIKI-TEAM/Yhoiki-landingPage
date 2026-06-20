@@ -3,113 +3,101 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Business Units", href: "#units" },
-  { label: "Team", href: "#team" },
-  { label: "Roadmap", href: "#goals" },
-  { label: "Contact", href: "#contact" },
+interface TautanNavigasi {
+  label: string;
+  href: string;
+}
+
+const tautanNavigasi: TautanNavigasi[] = [
+  { label: "Tentang Kami", href: "#about" },
+  { label: "Keunggulan", href: "#why-choose-us" },
+  { label: "Layanan", href: "#services" },
 ];
 
-export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+function gunakanStatusScroll() {
+  const [sudahScroll, setSudahScroll] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const tanganiScroll = () => setSudahScroll(window.scrollY > 40);
+    window.addEventListener("scroll", tanganiScroll);
+    return () => window.removeEventListener("scroll", tanganiScroll);
   }, []);
+
+  return sudahScroll;
+}
+
+function LogoYhoiki() {
+  return (
+    <a href="#" className="group flex items-center">
+      <img
+        src="/logo.png"
+        alt="Yhoiki Logo"
+        className="h-12 w-12 object-contain transition-transform duration-300 group-hover:scale-105 md:h-14 md:w-14"
+      />
+      <span className="text-x font-bold tracking-tight text-[#f0fdf4] md:text-xl">Yhoiki</span>
+    </a>
+  );
+}
+
+function TautanDesktop() {
+  return (
+    <div className="hidden items-center gap-8 md:flex">
+      {tautanNavigasi.map((link) => (
+        <a
+          key={link.href}
+          href={link.href}
+          className="text-sm font-medium text-[#a7c9b4] transition-colors duration-200 hover:text-[#86efac]"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  );
+}
+
+function MenuMobile({ tutupMenu }: { tutupMenu: () => void }) {
+  return (
+    <div className="absolute top-full right-0 left-0 flex flex-col gap-2 border-b border-[#4a7c59]/20 bg-[#0a0d0a]/95 px-6 py-5 shadow-xl backdrop-blur-xl md:hidden">
+      {tautanNavigasi.map((link) => (
+        <a
+          key={link.href}
+          href={link.href}
+          onClick={tutupMenu}
+          className="border-b border-[#4a7c59]/10 py-3 text-base font-medium text-[#a7c9b4] transition-colors last:border-none hover:text-[#86efac]"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  );
+}
+
+export default function Navbar() {
+  const sudahScroll = gunakanStatusScroll();
+  const [menuMobileTerbuka, setMenuMobileTerbuka] = useState(false);
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "py-3 bg-[#0a0d0a]/85 backdrop-blur-xl border-b border-[#4a7c59]/20 shadow-lg shadow-[#000]/30"
+      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ${
+        sudahScroll
+          ? "border-b border-[#4a7c59]/20 bg-[#0a0d0a]/85 py-3 shadow-lg shadow-black/30 backdrop-blur-xl"
           : "py-5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 rounded-lg bg-[#4a7c59] flex items-center justify-center group-hover:bg-[#6aaa7d] transition-colors duration-300">
-            <span className="text-white font-bold text-base">Y</span>
-          </div>
-          <span className="font-semibold text-[#f0fdf4] text-lg tracking-tight">
-            Yhoiki
-          </span>
-        </a>
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
+        <LogoYhoiki />
+        <TautanDesktop />
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-7">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-[#6b8f78] hover:text-[#86efac] transition-colors duration-200"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-
-        {/* CTA group */}
-        <div className="hidden md:flex items-center gap-3">
-          <a
-            href="mailto:yhoikiteam@gmail.com"
-            className="px-4 py-2 text-sm text-[#86efac] hover:text-[#f0fdf4] transition-colors duration-200"
-          >
-            Hubungi
-          </a>
-          <a
-            href="#contact"
-            className="px-5 py-2 text-sm font-semibold rounded-full text-[#0a0d0a] bg-[#4a7c59] hover:bg-[#6aaa7d] transition-all duration-300 shadow-md shadow-[#4a7c59]/25 hover:-translate-y-0.5"
-          >
-            Get Started
-          </a>
-        </div>
-
-        {/* Mobile Toggle */}
         <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-[#a7c9b4] hover:text-[#86efac] transition-colors p-1"
+          onClick={() => setMenuMobileTerbuka(!menuMobileTerbuka)}
+          className="p-1 text-[#a7c9b4] transition-colors hover:text-[#86efac] md:hidden"
           aria-label="Toggle menu"
         >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          {menuMobileTerbuka ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-[#0a0d0a]/97 backdrop-blur-xl border-b border-[#4a7c59]/20 px-6 py-5 flex flex-col gap-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
-              className="text-[#a7c9b4] hover:text-[#86efac] transition-colors py-1 text-sm"
-            >
-              {link.label}
-            </a>
-          ))}
-          <div className="flex gap-3 mt-2 pt-4 border-t border-[#4a7c59]/15">
-            <a
-              href="mailto:yhoikiteam@gmail.com"
-              className="flex-1 text-center px-4 py-2.5 text-sm font-medium rounded-full border border-[#4a7c59]/50 text-[#86efac] hover:bg-[#4a7c59]/20 transition-all"
-            >
-              Hubungi
-            </a>
-            <a
-              href="#contact"
-              onClick={() => setMobileOpen(false)}
-              className="flex-1 text-center px-4 py-2.5 text-sm font-semibold rounded-full text-[#0a0d0a] bg-[#4a7c59] hover:bg-[#6aaa7d] transition-all"
-            >
-              Get Started
-            </a>
-          </div>
-        </div>
-      )}
+      {menuMobileTerbuka && <MenuMobile tutupMenu={() => setMenuMobileTerbuka(false)} />}
     </nav>
   );
 }
