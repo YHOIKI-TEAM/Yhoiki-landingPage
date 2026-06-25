@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import Partners from "@/components/Partners";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import CTA from "@/components/CTA";
-import Testimonial from "@/components/Testimonial";
+import Portofolio from "@/components/Portofolio";
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
       <About />
       <WhyChooseUs />
       <Services />
-      <Testimonial />
+      <Portofolio />
       <CTA />
       <Footer />
     </main>

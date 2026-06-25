@@ -34,7 +34,8 @@ function LogoYhoiki() {
         alt="Yhoiki Logo"
         className="h-12 w-12 object-contain transition-transform duration-300 group-hover:scale-105 md:h-14 md:w-14"
       />
-      <span className="text-x font-bold tracking-tight text-[#f0fdf4] md:text-xl">Yhoiki</span>
+      {/* FIX: typo "text-x" → "text-xl" */}
+      <span className="text-xl font-bold tracking-tight text-[#f0fdf4] md:text-xl">Yhoiki</span>
     </a>
   );
 }
@@ -68,6 +69,14 @@ function MenuMobile({ tutupMenu }: { tutupMenu: () => void }) {
           {link.label}
         </a>
       ))}
+      {/* FIX: tambah CTA di mobile menu juga */}
+      <a
+        href="#contact"
+        onClick={tutupMenu}
+        className="mt-2 rounded-full bg-[#4a7c59] px-5 py-2.5 text-center text-sm font-semibold text-[#0a0d0a] transition-colors hover:bg-[#6aaa7d]"
+      >
+        Hubungi Kami
+      </a>
     </div>
   );
 }
@@ -87,6 +96,16 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
         <LogoYhoiki />
         <TautanDesktop />
+
+        {/* FIX: tambah CTA button di desktop nav */}
+        <div className="hidden items-center gap-4 md:flex">
+          <a
+            href="#contact"
+            className="rounded-full bg-[#4a7c59] px-5 py-2 text-sm font-semibold text-[#0a0d0a] shadow-md shadow-[#4a7c59]/20 transition-all duration-300 hover:bg-[#6aaa7d] hover:-translate-y-0.5"
+          >
+            Hubungi Kami
+          </a>
+        </div>
 
         <button
           onClick={() => setMenuMobileTerbuka(!menuMobileTerbuka)}
