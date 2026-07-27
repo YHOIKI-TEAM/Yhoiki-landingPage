@@ -31,28 +31,43 @@ function KartuPengantar() {
   return (
     <div
       className={cn(
-        "fade-up relative overflow-hidden kartu-shadow rounded-2xl bg-[var(--warna-bg-permukaan)] p-6 lg:col-span-2 lg:p-10",
-        "flex flex-col justify-center transition-colors hover:bg-[var(--warna-bg-permukaan-2)]",
+        "fade-up relative overflow-hidden kartu-shadow rounded-2xl bg-[var(--warna-bg-permukaan)] lg:col-span-2",
+        "transition-colors hover:bg-[var(--warna-bg-permukaan-2)]",
       )}
     >
-      <div className="pointer-events-none absolute top-0 left-1/2 -mt-2 -ml-20 h-full w-full mask-[linear-gradient(white,transparent)] opacity-20">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(var(--warna-brand-rgb),1)_1px,transparent_1px)] bg-size-[24px] mix-blend-overlay" />
+      <div className="foto-gedung relative h-48 w-full overflow-hidden md:h-64">
+        <img
+          src="/building-about.jpg"
+          alt="Gedung PT Yhoiki Digital Nusantara"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="relative z-10 flex h-full items-end p-6 md:p-8">
+          <span className="rounded-full bg-[rgba(var(--warna-bg-dasar-rgb),0.6)] px-4 py-2 text-xs font-semibold tracking-wider text-[var(--warna-teks-utama)] uppercase backdrop-blur-md">
+            PT Yhoiki Digital Nusantara
+          </span>
+        </div>
       </div>
 
-      <h2 className="relative z-10 mb-6 text-3xl leading-tight font-bold text-[var(--warna-teks-utama)] md:text-4xl">
-        Perusahaan Teknologi <span className="text-[var(--warna-brand)]">Digital Terdepan</span> di Asia
-        Tenggara
-      </h2>
+      <div className="relative p-6 lg:p-10">
+        <div className="pointer-events-none absolute top-0 left-1/2 -mt-2 -ml-20 h-full w-full mask-[linear-gradient(white,transparent)] opacity-20">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(var(--warna-brand-rgb),1)_1px,transparent_1px)] bg-size-[24px] mix-blend-overlay" />
+        </div>
 
-      <p className="relative z-10 mb-4 text-base leading-relaxed text-[var(--warna-teks-sekunder)]">
-        PT Yhoiki Digital Nusantara adalah perusahaan teknologi yang berfokus pada pengembangan produk digital
-        berbasis software (SaaS) serta pemanfaatan teknologi modern seperti Artificial Intelligence (AI),
-        Blockchain dan teknologi baru lainnya.
-      </p>
-      <p className="relative z-10 text-base leading-relaxed text-[var(--warna-teks-sekunder)]">
-        Hadir sebagai respon terhadap meningkatnya kebutuhan digitalisasi, dengan tujuan menghadirkan solusi
-        yang relevan, praktis, dan sesuai kebutuhan pengguna di era modern.
-      </p>
+        <h2 className="relative z-10 mb-6 text-3xl leading-tight font-bold text-[var(--warna-teks-utama)] md:text-4xl">
+          Perusahaan Teknologi <span className="text-[var(--warna-brand)]">Digital Terdepan</span> di Asia
+          Tenggara
+        </h2>
+
+        <p className="relative z-10 mb-4 text-base leading-relaxed text-[var(--warna-teks-sekunder)]">
+          PT Yhoiki Digital Nusantara adalah perusahaan teknologi yang berfokus pada pengembangan produk
+          digital berbasis software (SaaS) serta pemanfaatan teknologi modern seperti Artificial Intelligence
+          (AI), Blockchain dan teknologi baru lainnya.
+        </p>
+        <p className="relative z-10 text-base leading-relaxed text-[var(--warna-teks-sekunder)]">
+          Hadir sebagai respon terhadap meningkatnya kebutuhan digitalisasi, dengan tujuan menghadirkan solusi
+          yang relevan, praktis, dan sesuai kebutuhan pengguna di era modern.
+        </p>
+      </div>
     </div>
   );
 }
@@ -130,19 +145,6 @@ export default function About() {
             Kenali visi, misi, dan ekosistem teknologi yang kami bangun untuk mendukung pertumbuhan digital
             Anda.
           </p>
-        </div>
-
-        <div className="fade-up kartu-shadow foto-gedung relative mb-10 h-56 overflow-hidden rounded-2xl md:h-72">
-          <img
-            src="/building-about.jpg"
-            alt="Gedung PT Yhoiki Digital Nusantara"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <div className="relative z-10 flex h-full items-end p-6 md:p-10">
-            <span className="rounded-full bg-[rgba(var(--warna-bg-dasar-rgb),0.6)] px-4 py-2 text-xs font-semibold tracking-wider text-[var(--warna-teks-utama)] uppercase backdrop-blur-md">
-              PT Yhoiki Digital Nusantara
-            </span>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
