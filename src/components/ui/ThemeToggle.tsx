@@ -1,15 +1,15 @@
 "use client";
 
-import { useTheme } from "@/context/ThemeContext";
+import { useTema } from "@/context/ThemeContext";
 import { IconSun, IconMoon } from "./Icons";
 
 export default function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme();
-  const isDark = theme === "dark";
+  const { tema, toggleTema } = useTema();
+  const isDark = tema === "dark";
 
   return (
     <button
-      onClick={toggleTheme}
+      onClick={toggleTema}
       aria-label={isDark ? "Aktifkan tema terang" : "Aktifkan tema gelap"}
       aria-pressed={isDark}
       className="relative inline-flex items-center w-[52px] h-[28px] rounded-full border transition-colors duration-300 shrink-0"
