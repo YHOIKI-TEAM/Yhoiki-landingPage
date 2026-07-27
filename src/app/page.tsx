@@ -11,6 +11,8 @@ import FutureGoals from "@/components/FutureGoals";
 import CTA from "@/components/CTA";
 import Portofolio from "@/components/Portofolio";
 import FAQ from "@/components/FAQ";
+import PartnerKolaborasi from "@/components/PartnerKolaborasi";
+import Community from "@/components/Community";
 
 export default function Home() {
   return (
@@ -29,9 +31,12 @@ export default function Home() {
       <OrganizationStructure />
       <LegalInfo />
       <FutureGoals />
-      {/* 5. Jawab keraguan sebelum ajakan aksi */}
+      {/* 5. Bukti sosial tambahan — ajakan kolaborasi & komunitas */}
+      <PartnerKolaborasi />
+      <Community />
+      {/* 6. Jawab keraguan sebelum ajakan aksi */}
       <FAQ />
-      {/* 6. Ajakan aksi */}
+      {/* 7. Ajakan aksi */}
       <CTA />
       <Footer />
     </main>

@@ -124,9 +124,6 @@ export default function FAQ() {
           {/* Kolom kiri: intro + ajakan kontak, sticky di layar besar */}
           <div className="fade-up lg:col-span-4">
             <div className="lg:sticky lg:top-28">
-              <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-[rgba(var(--warna-brand-rgb),0.12)] px-4 py-1.5 text-xs font-bold tracking-widest text-[var(--warna-aksen)] uppercase">
-                FAQ
-              </span>
               <h2 className="mb-5 text-4xl font-bold tracking-tight text-[var(--warna-teks-utama)] lg:text-5xl">
                 Pertanyaan yang <span className="text-[var(--warna-brand)]">Sering Diajukan</span>
               </h2>

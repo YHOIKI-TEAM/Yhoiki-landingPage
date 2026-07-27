@@ -19,8 +19,9 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: antiFlicker }} />
       </head>
+      {/* Tambahkan w-full dan overflow-x-hidden pada properti className */}
       <body
-        className="font-sans antialiased"
+        className="font-sans antialiased w-full overflow-x-hidden"
         style={{ backgroundColor: "var(--warna-bg-dasar)", color: "var(--warna-teks-utama)" }}
       >
         <ThemeProvider>{children}</ThemeProvider>

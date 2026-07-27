@@ -75,7 +75,11 @@ export default function CTA() {
   gunakanAnimasiFadeUp(sectionRef);
 
   return (
-    <section id="contact" ref={sectionRef} className="relative bg-[var(--warna-bg-dasar)] py-24 md:py-32">
+    <section
+      id="contact"
+      ref={sectionRef}
+      className="relative overflow-hidden bg-[var(--warna-bg-dasar)] py-24 md:py-32"
+    >
       <div
         className="pointer-events-none absolute bottom-0 left-1/2 h-100 w-200 -translate-x-1/2"
         style={{
