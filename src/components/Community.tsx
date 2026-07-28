@@ -3,10 +3,6 @@
 /**
  * Section "Komunitas" — ajakan bergabung ke channel komunitas Yhoiki.
  *
- * TODO: ganti `href` di bawah dengan link grup/channel yang sebenarnya.
- * - WhatsApp: sudah diisi dengan nomor yang sama seperti di Footer, ganti ke
- *   link grup komunitas kalau berbeda dari nomor konsultasi.
- * - Discord & Facebook: masih placeholder "#", isi dengan link invite/Page asli.
  */
 
 interface CommunityItem {
@@ -34,10 +30,10 @@ function IkonDiscord(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-function IkonFacebook(props: React.SVGProps<SVGSVGElement>) {
+function IkonLinkedIn(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 16.991 22 12z" />
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z" />
     </svg>
   );
 }
@@ -45,9 +41,9 @@ function IkonFacebook(props: React.SVGProps<SVGSVGElement>) {
 const daftarKomunitas: CommunityItem[] = [
   {
     id: "whatsapp",
-    nama: "WhatsApp Group",
-    deskripsi: "Diskusi cepat, update layanan, dan konsultasi langsung dengan tim Yhoiki.",
-    href: "https://wa.me/6285117138037",
+    nama: "WhatsApp Channel",
+    deskripsi: "Pusat informasi, update layanan, dan Informasi valid, cepat, tepercaya langsung dari tim kami.",
+    href: "https://chat.whatsapp.com/BfVL4uJos23AaX7VKNsLQv?s=cl&p=a&ilr=1",
     warna: "#25D366",
     icon: IkonWhatsApp,
   },
@@ -55,17 +51,17 @@ const daftarKomunitas: CommunityItem[] = [
     id: "discord",
     nama: "Discord Server",
     deskripsi: "Ruang komunitas untuk developer, kolaborator, dan pengguna berbagi ide.",
-    href: "#",
+    href: "https://discord.gg/AHUVrpQ5",
     warna: "#5865F2",
     icon: IkonDiscord,
   },
   {
-    id: "facebook",
-    nama: "Facebook Page",
+    id: "linkedin",
+    nama: "LinkedIn",
     deskripsi: "Ikuti berita terbaru, studi kasus, dan aktivitas PT Yhoiki Digital Nusantara.",
-    href: "#",
-    warna: "#1877F2",
-    icon: IkonFacebook,
+    href: "https://www.linkedin.com/company/yhoiki/",
+    warna: "#0A66C2",
+    icon: IkonLinkedIn,
   },
 ];
 

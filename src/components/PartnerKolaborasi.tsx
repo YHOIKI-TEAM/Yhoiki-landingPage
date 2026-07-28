@@ -1,16 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { MessageCircle } from "lucide-react";
+import { Briefcase, Cpu, Building2, MessageCircle, type LucideIcon } from "lucide-react";
 
-/**
- * Section "Partner & Kolaborasi" — satu banner besar ala hero-CTA (bukan grid
- * kartu), langsung arahkan ke WhatsApp untuk pengajuan kerja sama. Tipografi
- * disamakan dengan section lain (font-bold tracking-tight, tanpa badge label).
- *
- * TODO: sesuaikan nomor WhatsApp, teks pesan default, dan angka statistik
- * ("mitraAktif" / "waktuRespon") sesuai data asli.
- */
 
 function gunakanAnimasiFadeUp(ref: React.RefObject<HTMLDivElement | null>) {
   useEffect(() => {
@@ -26,6 +18,54 @@ function gunakanAnimasiFadeUp(ref: React.RefObject<HTMLDivElement | null>) {
 const pesanWhatsApp = encodeURIComponent(
   "Halo Yhoiki, saya tertarik untuk menjajaki kerja sama/partnership. Boleh minta informasi lebih lanjut?",
 );
+
+interface LangkahKerjaSama {
+  nomor: string;
+  judul: string;
+  deskripsi: string;
+}
+
+const daftarLangkahKerjaSama: LangkahKerjaSama[] = [
+  {
+    nomor: "01",
+    judul: "Diskusi Kebutuhan",
+    deskripsi: "Ceritakan tujuan kerja sama lewat WhatsApp, tim kami akan menggali kebutuhan lebih dalam.",
+  },
+  {
+    nomor: "02",
+    judul: "Proposal & Kesepakatan",
+    deskripsi: "Kami susun skema kolaborasi dan lingkup kerja yang jelas sebelum kesepakatan disetujui bersama.",
+  },
+  {
+    nomor: "03",
+    judul: "Mulai Kolaborasi",
+    deskripsi: "Eksekusi dimulai dengan komunikasi berkala agar progres kerja sama tetap transparan.",
+  },
+];
+
+interface KategoriKerjaSama {
+  icon: LucideIcon;
+  judul: string;
+  deskripsi: string;
+}
+
+const daftarKategoriKerjaSama: KategoriKerjaSama[] = [
+  {
+    icon: Briefcase,
+    judul: "Mitra Bisnis",
+    deskripsi: "Kemitraan atau kolaborasi dengan UMKM, komunitas, maupun instansi.",
+  },
+  {
+    icon: Cpu,
+    judul: "Kolaborasi Riset & Teknologi",
+    deskripsi: "Pengembangan produk bersama atau riset teknologi jangka panjang, seperti Web-GIS dan aplikasi digital.",
+  },
+  {
+    icon: Building2,
+    judul: "Kemitraan Korporat & Instansi",
+    deskripsi: "Kerja sama strategis dengan perusahaan atau instansi untuk hubungan bisnis berkelanjutan.",
+  },
+];
 
 export default function PartnerKolaborasi() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -49,43 +89,74 @@ export default function PartnerKolaborasi() {
             }}
           />
 
-          <div className="relative z-10 flex flex-col items-start gap-10 md:flex-row md:items-center md:justify-center md:gap-20 lg:gap-28">
-            {/* Kiri: headline, deskripsi, statistik */}
-            <div className="max-w-xl">
+          <div className="relative z-10 grid grid-cols-1 gap-10 md:grid-cols-2 md:items-center lg:gap-16">
+            {/* Kiri: headline, deskripsi ringkas, badge kategori kerja sama */}
+            <div>
               <h2 className="mb-4 text-4xl font-bold tracking-tight text-[var(--warna-bg-dasar)] lg:text-5xl">
-                Mari Berkolaborasi dengan Kami
+                Terbuka untuk Kemitraan Bisnis
               </h2>
 
-              <p className="mb-8 max-w-md text-lg leading-relaxed text-[rgba(var(--warna-bg-dasar-rgb),0.85)]">
-                Terbuka untuk kerja sama bisnis, teknologi, maupun kebutuhan korporat. Satu pesan WhatsApp
-                cukup untuk memulai diskusi kemitraan dengan tim kami.
+              <p className="mb-3 max-w-md text-lg leading-relaxed text-[rgba(var(--warna-bg-dasar-rgb),0.85)]">
+                Khusus untuk perusahaan, komunitas, atau instansi yang ingin membangun kerja sama jangka
+                panjang dengan Yhoiki — bukan untuk pengerjaan proyek satuan.
+              </p>
+              <p className="mb-6 max-w-md text-sm leading-relaxed text-[rgba(var(--warna-bg-dasar-rgb),0.7)]">
+                Sedang cari tim untuk mengerjakan proyek Anda? Langsung hubungi kami lewat form di bagian{" "}
+                <a href="#contact" className="font-semibold underline underline-offset-2">
+                  Hubungi Kami
+                </a>{" "}
+                di bawah.
               </p>
 
-              <div className="flex items-center gap-6">
-                <div>
-                  <p className="text-2xl font-bold text-[var(--warna-bg-dasar)]">15+</p>
-                  <p className="text-sm text-[rgba(var(--warna-bg-dasar-rgb),0.75)]">Mitra Aktif</p>
-                </div>
-                <div className="h-10 w-px bg-[rgba(var(--warna-bg-dasar-rgb),0.25)]" />
-                <div>
-                  <p className="text-2xl font-bold text-[var(--warna-bg-dasar)]">{"< 24 Jam"}</p>
-                  <p className="text-sm text-[rgba(var(--warna-bg-dasar-rgb),0.75)]">Waktu Respon</p>
-                </div>
+              <div className="flex flex-wrap gap-3">
+                {daftarKategoriKerjaSama.map((kategori) => {
+                  const Icon = kategori.icon;
+                  return (
+                    <div
+                      key={kategori.judul}
+                      className="flex items-center gap-2 rounded-full bg-[rgba(var(--warna-bg-dasar-rgb),0.15)] px-4 py-2"
+                    >
+                      <Icon size={16} className="text-[var(--warna-bg-dasar)]" />
+                      <span className="text-sm font-semibold text-[var(--warna-bg-dasar)]">{kategori.judul}</span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Kanan: tombol besar langsung ke WhatsApp */}
-            <div className="flex w-full flex-col items-center gap-3 md:w-auto">
+            {/* Kanan: alur kerja sama + tombol WhatsApp */}
+            <div className="rounded-2xl bg-[rgba(var(--warna-bg-dasar-rgb),0.1)] p-6 md:p-8">
+              <div className="flex flex-col gap-5">
+                {daftarLangkahKerjaSama.map((langkah, idx) => (
+                  <div key={langkah.nomor} className="flex gap-4">
+                    <div className="flex flex-col items-center">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--warna-bg-dasar)] text-sm font-bold text-[var(--warna-brand)]">
+                        {langkah.nomor}
+                      </span>
+                      {idx < daftarLangkahKerjaSama.length - 1 && (
+                        <span className="mt-1 w-px flex-1 bg-[rgba(var(--warna-bg-dasar-rgb),0.3)]" />
+                      )}
+                    </div>
+                    <div className="pb-1">
+                      <p className="font-semibold text-[var(--warna-bg-dasar)]">{langkah.judul}</p>
+                      <p className="text-sm leading-relaxed text-[rgba(var(--warna-bg-dasar-rgb),0.8)]">
+                        {langkah.deskripsi}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
               <a
                 href={`https://wa.me/6285117138037?text=${pesanWhatsApp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--warna-bg-dasar)] px-7 py-3.5 font-semibold text-[var(--warna-teks-utama)] shadow-lg transition-all duration-300 hover:-translate-y-0.5 md:w-auto"
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--warna-bg-dasar)] px-7 py-3.5 font-semibold text-[var(--warna-teks-utama)] shadow-lg transition-all duration-300 hover:-translate-y-0.5"
               >
                 <MessageCircle size={20} className="text-[var(--warna-aksen)]" />
                 Hubungi via WhatsApp
               </a>
-              <p className="text-center text-sm text-[rgba(var(--warna-bg-dasar-rgb),0.75)]">
+              <p className="mt-3 text-center text-sm text-[rgba(var(--warna-bg-dasar-rgb),0.75)]">
                 Gratis · Tanpa Ribet · Respon Cepat
               </p>
             </div>

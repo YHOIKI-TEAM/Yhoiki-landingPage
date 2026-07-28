@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Mail, Phone, MessageCircle, Send } from "lucide-react";
+import { Mail, MessageCircle, Send } from "lucide-react";
 
 function gunakanAnimasiFadeUp(ref: React.RefObject<HTMLDivElement | null>) {
   useEffect(() => {
@@ -19,20 +19,19 @@ function FormKontak() {
   const [email, setEmail] = useState("");
   const [pesan, setPesan] = useState("");
 
-  function kirimEmail(e: React.FormEvent) {
+  function kirimViaWhatsApp(e: React.FormEvent) {
     e.preventDefault();
-    const subjek = encodeURIComponent(`Konsultasi dari ${nama || "Website"}`);
-    const isi = encodeURIComponent(
-      `Nama: ${nama}\nEmail: ${email}\n\nPesan:\n${pesan}`,
+    const teks = encodeURIComponent(
+      `Halo Yhoiki, saya ${nama} (${email}).\n\n${pesan}`,
     );
-    window.location.href = `mailto:yhoikiteam@gmail.com?subject=${subjek}&body=${isi}`;
+    window.open(`https://wa.me/6285117138037?text=${teks}`, "_blank");
   }
 
   const kelasInput =
     "w-full rounded-xl border border-[rgba(var(--warna-brand-rgb),0.25)] bg-[var(--warna-bg-dasar)] px-4 py-3 text-sm text-[var(--warna-teks-utama)] placeholder:text-[var(--warna-teks-muted)] outline-none transition-colors focus:border-[var(--warna-brand)]";
 
   return (
-    <form onSubmit={kirimEmail} className="flex flex-col gap-4 text-left">
+    <form onSubmit={kirimViaWhatsApp} className="flex flex-col gap-4 text-left">
       <div className="grid gap-4 sm:grid-cols-2">
         <input
           type="text"
@@ -129,16 +128,6 @@ export default function CTA() {
                 <Mail size={20} className="text-[var(--warna-aksen)]" />
               </span>
               <span className="font-medium text-[var(--warna-teks-utama)]">yhoikiteam@gmail.com</span>
-            </a>
-
-            <a
-              href="tel:+6285117138037"
-              className="flex items-center gap-4 rounded-2xl p-4 transition-colors hover:bg-[var(--warna-bg-permukaan-2)]"
-            >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[rgba(var(--warna-brand-rgb),0.15)]">
-                <Phone size={20} className="text-[var(--warna-aksen)]" />
-              </span>
-              <span className="font-medium text-[var(--warna-teks-utama)]">+62 851-1713-8037</span>
             </a>
           </div>
 

@@ -14,6 +14,7 @@ const tautanNavigasi: TautanNavigasi[] = [
   { label: "Portofolio", href: "#portfolio" },
   { label: "Tentang Kami", href: "#about" },
   { label: "Keunggulan", href: "#why-choose-us" },
+  { label: "Partner", href: "#partner" },
   { label: "FAQ", href: "#faq" },
 ];
 
