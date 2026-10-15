@@ -9,12 +9,29 @@ interface DataLegalitas {
   value: string;
 }
 
+interface DataLegalitas {
+  Icon: typeof Building2;
+  label: string;
+  value: string;
+  detail?: string;
+}
+
 const daftarLegalitas: DataLegalitas[] = [
   { Icon: Building2, label: "Bentuk Usaha", value: "Perseroan Perorangan" },
   { Icon: ShieldCheck, label: "Status Perusahaan", value: "Terdaftar & Aktif" },
   { Icon: Briefcase, label: "Bidang Usaha", value: "Teknologi & Solusi Digital" },
-  { Icon: FileBadge2, label: "Legalitas Usaha", value: "OSS & NIB Terverifikasi" },
-  { Icon: ReceiptText, label: "Registrasi Pajak", value: "Terdaftar" },
+  {
+    Icon: FileBadge2,
+    label: "Legalitas Usaha",
+    value: "OSS & NIB Terverifikasi",
+    detail: "NIB: 2205260016315",
+  },
+  {
+    Icon: ReceiptText,
+    label: "Registrasi Pajak",
+    value: "Terdaftar",
+    detail: "NPWP: 1000000008506332",
+  },
 ];
 
 function gunakanAnimasiFadeUp(ref: React.RefObject<HTMLDivElement | null>) {
@@ -57,7 +74,7 @@ function KartuDaftarLegalitas() {
       <div className="pointer-events-none absolute top-0 right-0 h-40 w-40 -translate-y-1/2 translate-x-1/2 rounded-full bg-[rgba(var(--warna-brand-rgb),0.15)] blur-3xl" />
 
       <div className="relative z-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {daftarLegalitas.map(({ Icon, label, value }) => (
+        {daftarLegalitas.map(({ Icon, label, value, detail }) => (
           <div
             key={label}
             className="flex items-start gap-3 rounded-xl bg-[rgba(var(--warna-bg-dasar-rgb),0.4)] p-4"
@@ -68,6 +85,11 @@ function KartuDaftarLegalitas() {
             <div>
               <div className="mb-1 text-sm text-[var(--warna-teks-muted)]">{label}</div>
               <div className="text-sm font-medium text-[var(--warna-teks-utama)]">{value}</div>
+              {detail && (
+                <div className="mt-1 font-mono text-xs tracking-wide text-[var(--warna-teks-sekunder)]">
+                  {detail}
+                </div>
+              )}
             </div>
           </div>
         ))}
