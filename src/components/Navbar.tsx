@@ -11,10 +11,11 @@ interface TautanNavigasi {
 
 const tautanNavigasi: TautanNavigasi[] = [
   { label: "Layanan", href: "#services" },
-  { label: "Portofolio", href: "#portfolio" },
-  { label: "Tentang Kami", href: "#about" },
+  { label: "Portofolio", href: "#business-units" },
   { label: "Keunggulan", href: "#why-choose-us" },
+  { label: "Tentang Kami", href: "#about" },
   { label: "Partner", href: "#partner" },
+  { label: "Komunitas", href: "#community" },
   { label: "FAQ", href: "#faq" },
 ];
 
