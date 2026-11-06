@@ -51,7 +51,7 @@ function LogoYhoiki() {
 
 function TautanDesktop() {
   return (
-    <div className="hidden items-center gap-8 md:flex">
+    <div className="hidden items-center gap-8 xl:flex">
       {tautanNavigasi.map((link) => (
         <a
           key={link.href}
@@ -67,7 +67,7 @@ function TautanDesktop() {
 
 function MenuMobile({ tutupMenu }: { tutupMenu: () => void }) {
   return (
-    <div className="absolute top-full right-0 left-0 flex flex-col gap-2 border-t border-[rgba(var(--warna-brand-rgb),0.15)] bg-[var(--warna-bg-dasar)] px-6 py-5 md:hidden">
+    <div className="absolute top-full right-0 left-0 flex flex-col gap-2 border-t border-[rgba(var(--warna-brand-rgb),0.15)] bg-[var(--warna-bg-dasar)] px-4 py-5 sm:px-6 xl:hidden">
       {tautanNavigasi.map((link) => (
         <a
           key={link.href}
@@ -116,12 +116,12 @@ export default function Navbar() {
           : "py-5"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6">
         <LogoYhoiki />
         <TautanDesktop />
 
         {/* FIX: tambah CTA button di desktop nav */}
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <TombolTema />
           <a
             href="#contact"
@@ -131,7 +131,7 @@ export default function Navbar() {
           </a>
         </div>
 
-        <div className="flex items-center gap-1 md:hidden">
+        <div className="flex items-center gap-1 xl:hidden">
           <TombolTema />
           <button
             onClick={() => setMenuMobileTerbuka(!menuMobileTerbuka)}

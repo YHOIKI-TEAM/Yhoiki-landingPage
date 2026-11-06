@@ -92,9 +92,9 @@ export default function CTA() {
           </p>
         </div>
 
-        <div className="fade-up kartu-shadow grid gap-0 overflow-hidden rounded-3xl bg-[var(--warna-bg-permukaan)] md:grid-cols-2">
+        <div className="fade-up kartu-shadow grid min-w-0 gap-0 overflow-hidden rounded-3xl bg-[var(--warna-bg-permukaan)] md:grid-cols-2">
           {/* Panel kiri: channel kontak langsung, WhatsApp jadi opsi utama karena paling minim friction */}
-          <div className="flex flex-col justify-center gap-4 bg-[var(--warna-bg-elevated)] p-10 md:p-12">
+          <div className="min-w-0 flex flex-col justify-center gap-4 bg-[var(--warna-bg-elevated)] p-6 sm:p-8 md:p-12">
             <a
               href="https://wa.me/6285117138037"
               target="_blank"
@@ -104,7 +104,7 @@ export default function CTA() {
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[var(--warna-bg-dasar)]">
                 <MessageCircle size={22} className="text-[var(--warna-brand)]" />
               </span>
-              <span>
+              <span className="min-w-0 flex-1">
                 <span className="block text-xs font-medium text-[rgba(var(--warna-bg-dasar-rgb),0.8)]">
                   Paling cepat direspons
                 </span>
@@ -124,7 +124,7 @@ export default function CTA() {
           </div>
 
           {/* Panel kanan: form langsung di halaman, tidak wajib pindah ke aplikasi lain */}
-          <div className="p-10 md:p-12">
+          <div className="min-w-0 p-6 sm:p-8 md:p-12">
             <FormKontak />
           </div>
         </div>

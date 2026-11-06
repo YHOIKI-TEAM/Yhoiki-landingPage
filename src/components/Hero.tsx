@@ -27,13 +27,13 @@ const kataBerputar: string[] = [
 ];
 
 const badgeStatistik: BadgeStatistik[] = [
-  { posisi: "absolute top-10 left-0 lg:-left-6 z-20", nilai: 4, label: "Layanan Digital Utama" },
+  { posisi: "xl:absolute xl:top-10 xl:left-0", nilai: 4, label: "Layanan Digital Utama" },
   {
-    posisi: "absolute top-1/2 -translate-y-1/2 right-0 lg:-right-8 z-20",
+    posisi: "xl:absolute xl:top-1/2 xl:right-0 xl:-translate-y-1/2",
     nilai: 2,
     label: "Unit Bisnis Digital Aktif",
   },
-  { posisi: "absolute bottom-16 left-4 lg:-left-2 z-20", nilai: 5, label: "Misi Perusahaan yang Kami Jalankan" },
+  { posisi: "xl:absolute xl:bottom-16 xl:left-4", nilai: 5, label: "Misi Perusahaan yang Kami Jalankan" },
 ];
 
 function AngkaBerjalan({ tujuan }: { tujuan: number }) {
@@ -124,16 +124,16 @@ function TagLayananList() {
 function BadgeStatistikItem({ data }: { data: BadgeStatistik }) {
   return (
     <div
-      className={`${data.posisi} flex items-center rounded-xl bg-[var(--warna-bg-permukaan)] px-6 py-4`}
+      className={`${data.posisi} relative z-20 flex min-w-0 items-center rounded-xl bg-[var(--warna-bg-permukaan)] px-4 py-3 sm:px-5 sm:py-4 xl:w-fit`}
     >
       <div>
         <div className="flex items-baseline gap-1">
-          <span className="text-4xl font-black text-[var(--warna-teks-utama)] md:text-5xl">
+          <span className="text-3xl font-black text-[var(--warna-teks-utama)] sm:text-4xl">
             <AngkaBerjalan tujuan={data.nilai} />
           </span>
-          <span className="text-3xl font-bold text-[var(--warna-aksen)]">+</span>
+          <span className="text-2xl font-bold text-[var(--warna-aksen)] sm:text-3xl">+</span>
         </div>
-        <span className="mt-1 block text-sm font-medium text-[rgba(var(--warna-aksen-rgb),0.8)]">
+        <span className="mt-1 block text-xs font-medium text-[rgba(var(--warna-aksen-rgb),0.8)] sm:text-sm">
           {data.label}
         </span>
       </div>
@@ -149,13 +149,13 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col justify-center overflow-hidden bg-[var(--warna-bg-dasar)] pt-16 pb-12 lg:pt-20"
+      className="relative flex flex-col justify-center overflow-hidden bg-[var(--warna-bg-dasar)] pt-28 pb-12 lg:pt-20"
     >
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
-            <h1 className="fade-up mb-6 text-5xl leading-[1.08] font-bold text-[var(--warna-teks-utama)] md:text-6xl">
-              Transformasi Digital yang{""}
+            <h1 className="fade-up mb-6 text-4xl leading-[1.08] font-bold text-[var(--warna-teks-utama)] sm:text-5xl md:text-6xl">
+              Transformasi Digital yang{" "}
               <span
                 className="block transition-all duration-300"
                 style={{
@@ -170,7 +170,7 @@ export default function Hero() {
               untuk Bisnis Anda
             </h1>
 
-            <p className="fade-up mb-10 max-w-lg text-lg leading-relaxed text-[var(--warna-teks-sekunder)]">
+            <p className="fade-up mb-10 max-w-lg text-base leading-relaxed text-[var(--warna-teks-sekunder)] sm:text-lg">
               PT Yhoiki Digital Nusantara menghadirkan solusi software inovatif berbasis AI, Blockchain, dan
               SaaS untuk membantu bisnis Anda tumbuh di era digital.
             </p>
@@ -193,8 +193,8 @@ export default function Hero() {
             <TagLayananList />
           </div>
 
-          <div className="fade-up relative flex min-h-155 w-full items-center justify-center lg:justify-end">
-            <div className="relative z-10 w-full overflow-hidden rounded-3xl" style={{ height: "620px" }}>
+          <div className="fade-up relative grid w-full grid-cols-1 gap-3 sm:grid-cols-3 xl:block xl:h-[38rem]">
+            <div className="relative z-10 col-span-1 h-[clamp(20rem,55vw,38rem)] w-full overflow-hidden rounded-3xl sm:col-span-3 xl:h-full">
               <img
                 src="/building.jpg"
                 alt="Gedung PT Yhoiki Digital Nusantara"
@@ -205,15 +205,14 @@ export default function Hero() {
                   transformOrigin: "center center",
                 }}
               />
+              <div className="absolute right-4 bottom-4 z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--warna-bg-permukaan)] sm:right-6 sm:bottom-6">
+                <Code2 size={26} className="text-[var(--warna-aksen)]" />
+              </div>
             </div>
 
             {badgeStatistik.map((data, index) => (
               <BadgeStatistikItem key={index} data={data} />
             ))}
-
-            <div className="absolute right-8 bottom-24 z-10 flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--warna-bg-permukaan)] lg:right-4">
-              <Code2 size={28} className="text-[var(--warna-aksen)]" />
-            </div>
           </div>
         </div>
       </div>
