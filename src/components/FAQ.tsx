@@ -81,7 +81,7 @@ function ItemAkordeon({
             className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-sm font-bold transition-colors duration-300 md:h-11 md:w-11 ${
               terbuka
                 ? "bg-[var(--warna-brand)] text-[var(--warna-bg-dasar)]"
-                : "bg-[rgba(var(--warna-brand-rgb),0.15)] text-[var(--warna-aksen)]"
+                : "bg-[var(--warna-bg-permukaan-2)] text-[var(--warna-aksen)]"
             }`}
           >
             {String(nomor).padStart(2, "0")}
@@ -116,9 +116,6 @@ export default function FAQ() {
 
   return (
     <section id="faq" ref={sectionRef} className="relative overflow-hidden bg-[var(--warna-bg-dasar)] py-24 md:py-28">
-      <div className="bg-dots absolute inset-0 opacity-20" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(var(--warna-brand-rgb),0.06)_0%,transparent_60%)]" />
-
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10">
           {/* Kolom kiri: intro + ajakan kontak, sticky di layar besar */}
@@ -134,9 +131,9 @@ export default function FAQ() {
 
               <a
                 href="#contact"
-                className="group flex items-center gap-4 rounded-2xl bg-[rgba(var(--warna-brand-rgb),0.07)] p-5 transition-colors hover:bg-[rgba(var(--warna-brand-rgb),0.12)]"
+                className="group flex items-center gap-4 rounded-2xl bg-[var(--warna-bg-permukaan)] p-5 transition-colors hover:bg-[var(--warna-bg-permukaan-2)]"
               >
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[rgba(var(--warna-brand-rgb),0.2)]">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--warna-bg-permukaan-2)]">
                   <MessageCircleQuestion size={22} className="text-[var(--warna-aksen)]" />
                 </span>
                 <span className="flex-1">

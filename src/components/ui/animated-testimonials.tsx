@@ -109,7 +109,7 @@ function KartuTestimoni({ testimoni, aktif }: { testimoni: Testimonial; aktif: b
       transition={{ duration: 0.5, ease: "easeInOut" }}
       style={{ zIndex: aktif ? 10 : 0 }}
     >
-      <div className="flex h-full flex-col rounded-2xl border border-[rgba(var(--warna-brand-rgb),0.2)] bg-[var(--warna-bg-permukaan)] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] md:p-10">
+      <div className="flex h-full flex-col rounded-2xl border border-[rgba(var(--warna-brand-rgb),0.2)] bg-[var(--warna-bg-permukaan)] p-8 md:p-10">
         <div className="mb-6 flex gap-2">
           {Array(testimoni.rating)
             .fill(0)
@@ -192,8 +192,6 @@ export function AnimatedTestimonials({
           </motion.div>
 
           <motion.div variants={varianItem} className="relative mr-4 h-full min-h-87.5 md:min-h-100 lg:mr-10">
-            <div className="pointer-events-none absolute top-1/2 left-1/2 h-75 w-75 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[rgba(var(--warna-brand-rgb),0.15)] blur-[80px]" />
-
             {testimonials.map((testimoni, index) => (
               <KartuTestimoni key={testimoni.id} testimoni={testimoni} aktif={indeksAktif === index} />
             ))}

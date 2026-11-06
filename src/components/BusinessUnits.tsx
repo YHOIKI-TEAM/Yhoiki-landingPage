@@ -55,8 +55,6 @@ function KartuUnitBisnis({ unit, index }: { unit: DataUnitBisnis; index: number 
       className="fade-up group relative overflow-hidden kartu-shadow rounded-2xl bg-[var(--warna-bg-permukaan)] p-8 transition-colors duration-500 hover:bg-[var(--warna-bg-permukaan-2)] lg:p-10"
       style={{ transitionDelay: `${index * 120}ms` }}
     >
-      <div className="pointer-events-none absolute top-0 right-0 h-40 w-40 -translate-y-1/2 translate-x-1/2 rounded-full bg-[rgba(var(--warna-brand-rgb),0.1)] blur-3xl transition-transform duration-700 group-hover:scale-110" />
-
       <div className="relative z-10 mb-6 flex items-center gap-4">
         <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white ring-1 ring-[rgba(var(--warna-brand-rgb),0.15)]">
           <img src={unit.logo} alt={`Logo ${unit.nama}`} className="h-full w-full object-cover" />
@@ -75,9 +73,9 @@ function KartuUnitBisnis({ unit, index }: { unit: DataUnitBisnis; index: number 
         {unit.fokus.map((item) => (
           <div
             key={item}
-            className="flex items-start gap-2.5 rounded-xl bg-[rgba(var(--warna-brand-rgb),0.07)] px-3.5 py-3 transition-colors group-hover:bg-[rgba(var(--warna-brand-rgb),0.12)]"
+            className="flex items-start gap-2.5 rounded-xl bg-[var(--warna-bg-permukaan-2)] px-3.5 py-3"
           >
-            <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(var(--warna-brand-rgb),0.2)]">
+            <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--warna-bg-elevated)]">
               <Check size={11} className="text-[var(--warna-aksen)]" />
             </div>
             <span className="text-xs leading-snug font-medium text-[var(--warna-teks-sekunder)]">{item}</span>
@@ -98,9 +96,6 @@ export default function BusinessUnits() {
       ref={sectionRef}
       className="relative overflow-hidden bg-[var(--warna-bg-dasar)] section-alt py-24"
     >
-      <div className="bg-dots absolute inset-0 opacity-20" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(var(--warna-brand-rgb),0.05)_0%,transparent_60%)]" />
-
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="fade-up mx-auto mb-14 max-w-2xl text-center">
           <h2 className="mb-4 text-4xl font-bold tracking-tight text-[var(--warna-teks-utama)] lg:text-5xl">

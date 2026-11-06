@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "Beyond Limits, Beyond Imaginations",
 };
 
-const antiFlicker = `(function(){try{var t=localStorage.getItem('yhoiki-theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}else{document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();`;
+const antiFlicker = `(function(){try{var t=localStorage.getItem('yhoiki-theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}else{document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" data-theme="dark" suppressHydrationWarning>
+    <html lang="id" data-theme="light" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: antiFlicker }} />
       </head>

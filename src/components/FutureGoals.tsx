@@ -51,11 +51,11 @@ function ItemTujuan({ data, index, isLast }: { data: DataTujuan; index: number; 
     <div className="fade-up relative flex gap-6 md:gap-8" style={{ transitionDelay: `${index * 120}ms` }}>
       {/* Node + garis penghubung vertikal */}
       <div className="relative flex shrink-0 flex-col items-center">
-        <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--warna-brand)] shadow-lg shadow-[rgba(var(--warna-brand-rgb),0.3)] md:h-16 md:w-16">
+        <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--warna-brand)] md:h-16 md:w-16">
           <span className="text-lg font-bold text-[var(--warna-bg-dasar)] md:text-xl">{data.nomor}</span>
         </div>
         {!isLast && (
-          <div className="my-2 w-px flex-1 bg-gradient-to-b from-[rgba(var(--warna-brand-rgb),0.4)] to-[rgba(var(--warna-brand-rgb),0.05)]" />
+          <div className="my-2 w-px flex-1 bg-[var(--warna-bg-permukaan-2)]" />
         )}
       </div>
 
@@ -85,15 +85,6 @@ export default function FutureGoals() {
       ref={sectionRef}
       className="relative overflow-hidden bg-[var(--warna-bg-dasar)] py-24"
     >
-      <div className="bg-dots absolute inset-0 opacity-20" />
-      <div
-        className="pointer-events-none absolute top-0 left-0 h-150 w-150"
-        style={{
-          background:
-            "radial-gradient(circle at 20% 20%, rgba(var(--warna-brand-rgb),0.08) 0%, transparent 60%)",
-        }}
-      />
-
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="fade-up mx-auto mb-16 max-w-2xl text-center">
           <h2 className="mb-4 text-4xl font-bold tracking-tight text-[var(--warna-teks-utama)] lg:text-5xl">

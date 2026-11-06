@@ -72,14 +72,8 @@ function KartuKomunitas({ item }: { item: CommunityItem }) {
       href={item.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex flex-col items-start gap-4 overflow-hidden rounded-2xl bg-[var(--warna-bg-permukaan)] p-6 shadow-[0_2px_8px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(0,0,0,0.25)]"
+      className="group relative flex flex-col items-start gap-4 overflow-hidden rounded-2xl border border-[rgba(var(--warna-brand-rgb),0.12)] bg-[var(--warna-bg-permukaan)] p-6 transition-colors duration-300"
     >
-      {/* Glow warna brand komunitas, muncul halus saat hover */}
-      <div
-        className="pointer-events-none absolute -top-10 -right-10 h-32 w-32 rounded-full opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-25"
-        style={{ backgroundColor: item.warna }}
-      />
-
       <div
         className="relative flex h-14 w-14 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-105"
         style={{ backgroundColor: `${item.warna}1A`, color: item.warna }}
@@ -105,9 +99,6 @@ export default function Community() {
       id="community"
       className="relative overflow-hidden bg-[var(--warna-bg-dasar)] py-24"
     >
-      <div className="bg-dots absolute inset-0 opacity-20" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(var(--warna-brand-rgb),0.05)_0%,transparent_60%)]" />
-
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <h2 className="mb-4 text-4xl font-bold tracking-tight text-[var(--warna-teks-utama)] lg:text-5xl">

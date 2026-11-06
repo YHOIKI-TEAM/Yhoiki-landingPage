@@ -137,7 +137,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={tautan.label}
-                    className="flex h-10 w-10 items-center justify-center rounded-full text-[var(--warna-teks-sekunder)] transition-all hover:bg-[rgba(var(--warna-brand-rgb),0.2)] hover:text-[var(--warna-aksen)]"
+                    className="flex h-10 w-10 items-center justify-center rounded-full text-[var(--warna-teks-sekunder)] transition-colors hover:bg-[var(--warna-bg-permukaan-2)] hover:text-[var(--warna-aksen)]"
                   >
                     <Icon className="h-5 w-5" />
                   </a>
@@ -147,7 +147,7 @@ export default function Footer() {
           )}
         </div>
 
-        <div className="mb-12 h-px w-full bg-[rgba(var(--warna-brand-rgb),0.2)]" />
+        <div className="mb-12 h-px w-full bg-[var(--warna-brand)]" />
 
         <div className="mb-12 grid grid-cols-2 gap-8 md:grid-cols-4">
           {grupTautanFooter.map((grup, index) => (
@@ -155,7 +155,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="h-px w-full bg-[rgba(var(--warna-brand-rgb),0.2)]" />
+        <div className="h-px w-full bg-[var(--warna-brand)]" />
 
         <div className="mt-8 flex flex-col items-center justify-between gap-4 text-sm text-[var(--warna-teks-muted)] md:flex-row">
           <p>© {new Date().getFullYear()} PT Yhoiki Digital Nusantara. All rights reserved.</p>

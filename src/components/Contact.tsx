@@ -15,15 +15,10 @@ export default function Contact() {
   }, []);
 
   return (
-    <section id="contact" ref={ref} className="relative py-28 bg-white overflow-hidden">
-      <div className="absolute inset-0 bg-grid-light opacity-80" />
-
+    <section id="contact" ref={ref} className="relative overflow-hidden bg-white py-28">
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* CTA Banner */}
-        <div className="fade-up relative rounded-3xl border border-[#4a7c59]/20 bg-[#f8fbf9] p-12 md:p-16 text-center overflow-hidden mb-16 shadow-sm">
-          <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-[#4a7c59]/5 -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-[#4a7c59]/5 translate-y-1/2 -translate-x-1/2 pointer-events-none" />
-
+        <div className="fade-up relative mb-16 overflow-hidden rounded-3xl border border-[#4a7c59]/20 bg-[#f8fbf9] p-12 text-center md:p-16">
           <div className="relative z-10">
             <div className="badge-green mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4a7c59] animate-pulse" />
@@ -43,13 +38,13 @@ export default function Contact() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="mailto:yhoikiteam@gmail.com"
-                className="px-8 py-3.5 rounded-full font-semibold text-white bg-[#4a7c59] hover:bg-[#3d6b4a] transition-all duration-300 shadow-lg shadow-[#4a7c59]/25 hover:-translate-y-0.5"
+                className="px-8 py-3.5 rounded-full font-semibold text-white bg-[#4a7c59] hover:bg-[#3d6b4a] transition-colors duration-300"
               >
                 yhoikiteam@gmail.com
               </a>
               <a
                 href="tel:+6285117138037"
-                className="px-8 py-3.5 rounded-full font-semibold text-[#4a7c59] border-2 border-[#4a7c59]/30 hover:border-[#4a7c59] hover:bg-[#4a7c59]/5 transition-all duration-300 hover:-translate-y-0.5"
+                className="px-8 py-3.5 rounded-full font-semibold text-[#4a7c59] border-2 border-[#4a7c59]/30 hover:border-[#4a7c59] hover:bg-[#f8fbf9] transition-colors duration-300"
               >
                 +62 851-1713-8037
               </a>
@@ -66,7 +61,7 @@ export default function Contact() {
           ].map((c) => (
             <div
               key={c.label}
-              className="p-6 rounded-xl border border-[#4a7c59]/15 bg-[#f8fbf9] text-center shadow-sm hover:border-[#4a7c59]/35 hover:shadow-md transition-all duration-200"
+              className="p-6 rounded-xl border border-[#4a7c59]/15 bg-[#f8fbf9] text-center hover:border-[#4a7c59]/35 transition-colors duration-200"
             >
               <span className="text-3xl mb-3 block">{c.icon}</span>
               <div className="text-xs text-[#6b7280] mb-1 uppercase tracking-wider font-medium">{c.label}</div>
@@ -84,7 +79,7 @@ export default function Contact() {
         {/* Footer */}
         <div className="fade-up border-t border-[#4a7c59]/15 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-7 h-7 rounded-md bg-[#4a7c59] flex items-center justify-center text-white font-bold text-sm shadow-sm">
+            <div className="w-7 h-7 rounded-md bg-[#4a7c59] flex items-center justify-center text-white font-bold text-sm">
               Y
             </div>
             <span className="text-[#374151] text-sm font-medium">PT Yhoiki Digital Nusantara</span>

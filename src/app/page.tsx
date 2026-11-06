@@ -9,7 +9,6 @@ import Footer from "@/components/Footer";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import FutureGoals from "@/components/FutureGoals";
 import CTA from "@/components/CTA";
-import Portofolio from "@/components/Portofolio";
 import FAQ from "@/components/FAQ";
 import PartnerKolaborasi from "@/components/PartnerKolaborasi";
 import Community from "@/components/Community";
@@ -24,8 +23,6 @@ export default function Home() {
       <Services />
       <BusinessUnits />
       <WhyChooseUs />
-      {/* 3. Bukti nyata sebelum klaim tentang perusahaan */}
-      <Portofolio />
       {/* 4. Kenal lebih dekat — siapa & bagaimana Yhoiki bekerja */}
       <About />
       <OrganizationStructure />

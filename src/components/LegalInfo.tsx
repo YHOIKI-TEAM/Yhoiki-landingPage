@@ -57,7 +57,7 @@ function KartuDeskripsiLegal() {
         bidang teknologi digital, pengembangan sistem, solusi AI, dan layanan digital modern di Indonesia.
       </p>
 
-      <div className="mt-6 rounded-xl bg-[rgba(var(--warna-brand-rgb),0.05)] p-5">
+      <div className="mt-6 rounded-xl bg-[var(--warna-bg-permukaan)] p-5">
         <p className="text-sm leading-relaxed text-[var(--warna-teks-muted)]">
           Detail dokumen legal perusahaan dan data verifikasi lanjutan dapat diberikan kepada client, partner,
           investor, atau pihak terkait yang telah terverifikasi dalam proses kerja sama maupun kebutuhan
@@ -70,16 +70,14 @@ function KartuDeskripsiLegal() {
 
 function KartuDaftarLegalitas() {
   return (
-    <div className="fade-up relative overflow-hidden rounded-2xl bg-[rgba(var(--warna-brand-rgb),0.05)] p-8 transition-colors hover:bg-[rgba(var(--warna-brand-rgb),0.1)] lg:col-span-7">
-      <div className="pointer-events-none absolute top-0 right-0 h-40 w-40 -translate-y-1/2 translate-x-1/2 rounded-full bg-[rgba(var(--warna-brand-rgb),0.15)] blur-3xl" />
-
+    <div className="fade-up relative overflow-hidden rounded-2xl bg-[var(--warna-bg-permukaan)] p-8 lg:col-span-7">
       <div className="relative z-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
         {daftarLegalitas.map(({ Icon, label, value, detail }) => (
           <div
             key={label}
-            className="flex items-start gap-3 rounded-xl bg-[rgba(var(--warna-bg-dasar-rgb),0.4)] p-4"
+            className="flex items-start gap-3 rounded-xl bg-[var(--warna-bg-dasar)] p-4"
           >
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[rgba(var(--warna-brand-rgb),0.2)]">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--warna-bg-permukaan-2)]">
               <Icon size={16} className="text-[var(--warna-aksen)]" />
             </div>
             <div>
@@ -108,9 +106,6 @@ export default function LegalInfo() {
       ref={sectionRef}
       className="relative overflow-hidden bg-[var(--warna-bg-dasar)] py-24"
     >
-      <div className="bg-dots absolute inset-0 opacity-20" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(var(--warna-brand-rgb),0.05)_0%,transparent_60%)]" />
-
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="fade-up mx-auto mb-14 max-w-2xl text-center">
           <h2 className="mb-4 text-4xl font-bold tracking-tight text-[var(--warna-teks-utama)] lg:text-5xl">

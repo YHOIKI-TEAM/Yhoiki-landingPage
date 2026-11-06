@@ -12,11 +12,11 @@ interface KonteksTema {
 const ThemeContext = createContext<KonteksTema | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [tema, setTema] = useState<Tema>("dark");
+  const [tema, setTema] = useState<Tema>("light");
 
   useEffect(() => {
     const tersimpan = window.localStorage.getItem("yhoiki-theme") as Tema | null;
-    const awal = tersimpan === "light" || tersimpan === "dark" ? tersimpan : "dark";
+    const awal = tersimpan === "light" || tersimpan === "dark" ? tersimpan : "light";
     setTema(awal);
     document.documentElement.setAttribute("data-theme", awal);
   }, []);

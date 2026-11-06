@@ -36,7 +36,7 @@ function KartuPengurus({ data, index }: { data: DataPengurus; index: number }) {
       className="fade-up group relative flex flex-col overflow-hidden kartu-shadow rounded-2xl bg-[var(--warna-bg-permukaan)] transition-colors hover:bg-[var(--warna-bg-permukaan-2)]"
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="relative h-64 w-full overflow-hidden bg-[rgba(var(--warna-brand-rgb),0.1)]">
+      <div className="relative h-64 w-full overflow-hidden bg-[var(--warna-bg-permukaan-2)]">
         <img
           src={data.foto}
           alt={data.nama}
@@ -45,7 +45,7 @@ function KartuPengurus({ data, index }: { data: DataPengurus; index: number }) {
       </div>
 
       <div className="flex flex-col items-center gap-2 p-6 text-center">
-        <span className="rounded-full bg-[rgba(var(--warna-brand-rgb),0.15)] px-4 py-1 text-xs font-bold tracking-wider text-[var(--warna-aksen)]">
+        <span className="rounded-full bg-[var(--warna-bg-permukaan-2)] px-4 py-1 text-xs font-bold tracking-wider text-[var(--warna-aksen)]">
           {data.posisi}
         </span>
         <h3 className="text-lg font-bold text-[var(--warna-teks-utama)]">{data.nama}</h3>
@@ -64,9 +64,6 @@ export default function OrganizationStructure() {
       ref={sectionRef}
       className="relative overflow-hidden bg-[var(--warna-bg-dasar)] section-alt py-24"
     >
-      <div className="bg-dots absolute inset-0 opacity-20" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(var(--warna-brand-rgb),0.05)_0%,transparent_60%)]" />
-
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="fade-up mx-auto mb-14 max-w-2xl text-center">
           <h2 className="mb-4 text-4xl font-bold tracking-tight text-[var(--warna-teks-utama)] lg:text-5xl">

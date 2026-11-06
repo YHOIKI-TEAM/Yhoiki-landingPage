@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Check } from "lucide-react";
+import { Check, Mountain, PanelsTopLeft } from "lucide-react";
 
 interface DataProduk {
   id: number;
@@ -9,7 +9,7 @@ interface DataProduk {
   tagline: string;
   deskripsi: string;
   fitur: string[];
-  preview: string;
+  Icon: typeof Mountain;
 }
 
 const daftarProduk: DataProduk[] = [
@@ -20,7 +20,7 @@ const daftarProduk: DataProduk[] = [
     deskripsi:
       "Platform teknologi berbasis digital ecosystem dan Artificial Intelligence untuk pengembangan solusi outdoor dan komunitas modern.",
     fitur: ["Smart Hiking Offline Ecosystem", "AI Offline Features", "Management Hiking"],
-    preview: "/units/ndaki-preview.jpg",
+    Icon: Mountain,
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const daftarProduk: DataProduk[] = [
     tagline: "Digital Solutions untuk Bisnis Modern",
     deskripsi: "Unit bisnis yang berfokus pada layanan digital dan solusi teknologi untuk bisnis modern.",
     fitur: ["Website & App Development", "Visual Branding", "AI Automation Tools"],
-    preview: "/units/yho-preview.jpg",
+    Icon: PanelsTopLeft,
   },
 ];
 
@@ -53,8 +53,9 @@ function KartuProduk({ produk, index }: { produk: DataProduk; index: number }) {
       className="fade-up group relative flex flex-col overflow-hidden kartu-shadow rounded-2xl bg-[var(--warna-bg-permukaan)] transition-colors duration-300 hover:bg-[var(--warna-bg-permukaan-2)]"
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="relative h-56 w-full overflow-hidden bg-white">
-        <img src={produk.preview} alt={`Tampilan produk ${produk.nama}`} className="h-full w-full object-cover" />
+      <div className="flex h-56 w-full flex-col items-center justify-center gap-3 bg-[var(--warna-bg-permukaan-2)]">
+        <produk.Icon size={64} strokeWidth={1.5} className="text-[var(--warna-brand)]" aria-hidden="true" />
+        <span className="text-xl font-bold text-[var(--warna-brand)]">{produk.nama}</span>
       </div>
 
       <div className="relative z-10 p-6 lg:p-8">
@@ -65,7 +66,7 @@ function KartuProduk({ produk, index }: { produk: DataProduk; index: number }) {
         <div className="space-y-3">
           {produk.fitur.map((item) => (
             <div key={item} className="flex items-center gap-3 text-sm text-[var(--warna-teks-sekunder)]">
-              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(var(--warna-brand-rgb),0.2)]">
+              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--warna-bg-permukaan-2)]">
                 <Check size={12} className="text-[var(--warna-aksen)]" />
               </div>
               <span>{item}</span>
@@ -83,8 +84,6 @@ export default function Portfolio() {
 
   return (
     <section id="portfolio" ref={sectionRef} className="relative bg-[var(--warna-bg-dasar)] section-alt py-24">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(var(--warna-brand-rgb),0.05)_0%,transparent_60%)]" />
-
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="fade-up mx-auto mb-12 max-w-2xl text-center">
           <h2 className="mb-4 text-4xl font-bold tracking-tight text-[var(--warna-teks-utama)] lg:text-5xl">

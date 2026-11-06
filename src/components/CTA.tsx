@@ -60,7 +60,7 @@ function FormKontak() {
       />
       <button
         type="submit"
-        className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--warna-brand)] px-6 py-3.5 font-semibold text-[var(--warna-bg-dasar)] shadow-lg shadow-[rgba(var(--warna-brand-rgb),0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--warna-brand-terang)]"
+        className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--warna-brand)] px-6 py-3.5 font-semibold text-[var(--warna-bg-dasar)] transition-colors duration-300 hover:bg-[var(--warna-brand-terang)]"
       >
         <Send size={18} />
         Kirim Pesan
@@ -79,14 +79,6 @@ export default function CTA() {
       ref={sectionRef}
       className="relative overflow-hidden bg-[var(--warna-bg-dasar)] py-24 md:py-32"
     >
-      <div
-        className="pointer-events-none absolute bottom-0 left-1/2 h-100 w-200 -translate-x-1/2"
-        style={{
-          background:
-            "radial-gradient(ellipse at 50% 100%, rgba(var(--warna-brand-rgb),0.15) 0%, transparent 70%)",
-        }}
-      />
-
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
         <div className="fade-up mx-auto mb-14 max-w-2xl text-center">
           <h2 className="mb-6 text-4xl font-bold text-[var(--warna-teks-utama)] md:text-5xl lg:text-6xl">
@@ -107,7 +99,7 @@ export default function CTA() {
               href="https://wa.me/6285117138037"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 rounded-2xl bg-[var(--warna-brand)] p-4 shadow-lg shadow-[rgba(var(--warna-brand-rgb),0.25)] transition-transform duration-300 hover:-translate-y-0.5"
+              className="flex items-center gap-4 rounded-2xl bg-[var(--warna-brand)] p-4 transition-colors duration-300 hover:bg-[var(--warna-brand-terang)]"
             >
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[var(--warna-bg-dasar)]">
                 <MessageCircle size={22} className="text-[var(--warna-brand)]" />
@@ -124,7 +116,7 @@ export default function CTA() {
               href="mailto:yhoikiteam@gmail.com"
               className="flex items-center gap-4 rounded-2xl p-4 transition-colors hover:bg-[var(--warna-bg-permukaan-2)]"
             >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[rgba(var(--warna-brand-rgb),0.15)]">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[var(--warna-bg-dasar)]">
                 <Mail size={20} className="text-[var(--warna-aksen)]" />
               </span>
               <span className="font-medium text-[var(--warna-teks-utama)]">yhoikiteam@gmail.com</span>

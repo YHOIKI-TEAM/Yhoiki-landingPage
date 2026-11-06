@@ -42,17 +42,13 @@ function KartuPengantar() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="relative z-10 flex h-full items-end p-6 md:p-8">
-          <span className="rounded-full bg-[rgba(var(--warna-bg-dasar-rgb),0.6)] px-4 py-2 text-xs font-semibold tracking-wider text-[var(--warna-teks-utama)] uppercase backdrop-blur-md">
+          <span className="rounded-full bg-[var(--warna-bg-dasar)] px-4 py-2 text-xs font-semibold tracking-wider text-[var(--warna-teks-utama)] uppercase">
             PT Yhoiki Digital Nusantara
           </span>
         </div>
       </div>
 
       <div className="relative p-6 lg:p-10">
-        <div className="pointer-events-none absolute top-0 left-1/2 -mt-2 -ml-20 h-full w-full mask-[linear-gradient(white,transparent)] opacity-20">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(var(--warna-brand-rgb),1)_1px,transparent_1px)] bg-size-[24px] mix-blend-overlay" />
-        </div>
-
         <h2 className="relative z-10 mb-6 text-3xl leading-tight font-bold text-[var(--warna-teks-utama)] md:text-4xl">
           Perusahaan Teknologi <span className="text-[var(--warna-brand)]">Digital Terdepan</span> di Asia
           Tenggara
@@ -74,11 +70,9 @@ function KartuPengantar() {
 
 function KartuVisi() {
   return (
-    <div className="fade-up relative overflow-hidden rounded-2xl bg-[rgba(var(--warna-brand-rgb),0.05)] p-6 transition-colors hover:bg-[rgba(var(--warna-brand-rgb),0.1)] lg:p-8">
-      <div className="pointer-events-none absolute top-0 right-0 h-40 w-40 -translate-y-1/2 translate-x-1/2 rounded-full bg-[rgba(var(--warna-brand-rgb),0.15)] blur-3xl" />
-
+    <div className="fade-up relative overflow-hidden rounded-2xl bg-[var(--warna-bg-permukaan)] p-6 lg:p-8">
       <div className="relative z-10 mb-6 flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[rgba(var(--warna-brand-rgb),0.2)]">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--warna-bg-permukaan-2)]">
           <Target size={20} className="text-[var(--warna-aksen)]" />
         </div>
         <h3 className="text-2xl font-bold text-[var(--warna-teks-utama)]">Visi</h3>
@@ -95,11 +89,9 @@ function KartuVisi() {
 
 function KartuMisi() {
   return (
-    <div className="fade-up relative overflow-hidden rounded-2xl bg-[rgba(var(--warna-brand-rgb),0.05)] p-6 transition-colors hover:bg-[rgba(var(--warna-brand-rgb),0.1)] lg:p-8">
-      <div className="pointer-events-none absolute bottom-0 left-0 h-40 w-40 -translate-x-1/2 translate-y-1/2 rounded-full bg-[rgba(var(--warna-brand-rgb),0.15)] blur-3xl" />
-
+    <div className="fade-up relative overflow-hidden rounded-2xl bg-[var(--warna-bg-permukaan)] p-6 lg:p-8">
       <div className="relative z-10 mb-6 flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[rgba(var(--warna-brand-rgb),0.2)]">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--warna-bg-permukaan-2)]">
           <CheckCircle2 size={20} className="text-[var(--warna-aksen)]" />
         </div>
         <h3 className="text-2xl font-bold text-[var(--warna-teks-utama)]">Misi</h3>
@@ -111,7 +103,7 @@ function KartuMisi() {
             key={index}
             className="flex items-start gap-3 text-sm leading-relaxed text-[var(--warna-teks-sekunder)]"
           >
-            <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[rgba(var(--warna-brand-rgb),0.2)]">
+            <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--warna-bg-permukaan-2)]">
               <span className="text-xs font-bold text-[var(--warna-aksen)]">{index + 1}</span>
             </div>
             <span>{misi}</span>
@@ -132,9 +124,6 @@ export default function About() {
       ref={sectionRef}
       className="relative overflow-hidden bg-[var(--warna-bg-dasar)] py-24"
     >
-      <div className="bg-dots absolute inset-0 opacity-20" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(var(--warna-brand-rgb),0.05)_0%,transparent_60%)]" />
-
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="fade-up mx-auto mb-12 max-w-2xl text-center">
           <h2 className="mb-4 text-4xl font-bold tracking-tight text-[var(--warna-teks-utama)] lg:text-5xl">

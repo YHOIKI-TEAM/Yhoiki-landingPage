@@ -95,15 +95,6 @@ export default function WhyChooseUs() {
       ref={sectionRef}
       className="relative overflow-hidden bg-[var(--warna-bg-dasar)] section-alt py-24 lg:py-32"
     >
-      <div className="bg-dots absolute inset-0 opacity-10" />
-      <div
-        className="pointer-events-none absolute top-0 right-0 h-150 w-150"
-        style={{
-          background:
-            "radial-gradient(circle at 80% 20%, rgba(var(--warna-brand-rgb),0.08) 0%, transparent 60%)",
-        }}
-      />
-
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
           <HeadingKiri />
@@ -126,10 +117,6 @@ export default function WhyChooseUs() {
  .fade-up.visible {
  opacity: 1;
  transform: translateY(0);
- }
- .bg-dots {
- background-image: radial-gradient(rgba(var(--warna-aksen-rgb), 0.15) 1px, transparent 1px);
- background-size: 24px 24px;
  }`,
         }}
       />

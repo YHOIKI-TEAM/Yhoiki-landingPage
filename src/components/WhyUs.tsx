@@ -42,9 +42,7 @@ export default function WhyUs() {
   }, []);
 
   return (
-    <section ref={ref} className="relative py-28 bg-white overflow-hidden">
-      <div className="absolute inset-0 bg-grid-light opacity-80" />
-
+    <section ref={ref} className="relative overflow-hidden bg-white py-28">
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="fade-up flex items-center justify-center gap-3 mb-4">
@@ -61,7 +59,7 @@ export default function WhyUs() {
         </div>
 
         {/* 2x2 grid like PDF */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 rounded-3xl overflow-hidden border border-[#4a7c59]/15 shadow-lg">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 rounded-3xl overflow-hidden border border-[#4a7c59]/15">
           {reasons.map((r, i) => (
             <div
               key={r.title}

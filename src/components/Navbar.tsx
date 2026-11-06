@@ -66,7 +66,7 @@ function TautanDesktop() {
 
 function MenuMobile({ tutupMenu }: { tutupMenu: () => void }) {
   return (
-    <div className="absolute top-full right-0 left-0 flex flex-col gap-2 bg-[rgba(var(--warna-bg-dasar-rgb),0.95)] px-6 py-5 shadow-xl backdrop-blur-xl md:hidden">
+    <div className="absolute top-full right-0 left-0 flex flex-col gap-2 border-t border-[rgba(var(--warna-brand-rgb),0.15)] bg-[var(--warna-bg-dasar)] px-6 py-5 md:hidden">
       {tautanNavigasi.map((link) => (
         <a
           key={link.href}
@@ -96,7 +96,7 @@ function TombolTema() {
     <button
       onClick={toggleTema}
       aria-label="Ganti tema"
-      className="flex h-10 w-10 items-center justify-center rounded-full text-[var(--warna-teks-sekunder)] transition-all hover:bg-[rgba(var(--warna-brand-rgb),0.15)] hover:text-[var(--warna-aksen)]"
+      className="flex h-10 w-10 items-center justify-center rounded-full text-[var(--warna-teks-sekunder)] transition-colors hover:bg-[var(--warna-bg-permukaan)] hover:text-[var(--warna-aksen)]"
     >
       {tema === "dark" ? <Sun size={18} /> : <Moon size={18} />}
     </button>
@@ -111,7 +111,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ${
         sudahScroll
-          ? "bg-[rgba(var(--warna-bg-dasar-rgb),0.85)] py-3 shadow-lg shadow-black/30 backdrop-blur-xl"
+          ? "border-b border-[rgba(var(--warna-brand-rgb),0.15)] bg-[var(--warna-bg-dasar)] py-3"
           : "py-5"
       }`}
     >
@@ -124,7 +124,7 @@ export default function Navbar() {
           <TombolTema />
           <a
             href="#contact"
-            className="rounded-full bg-[var(--warna-brand)] px-5 py-2 text-sm font-semibold text-[var(--warna-bg-dasar)] shadow-md shadow-[rgba(var(--warna-brand-rgb),0.2)] transition-all duration-300 hover:bg-[var(--warna-brand-terang)] hover:-translate-y-0.5"
+            className="rounded-full bg-[var(--warna-brand)] px-5 py-2 text-sm font-semibold text-[var(--warna-bg-dasar)] transition-colors duration-300 hover:bg-[var(--warna-brand-terang)]"
           >
             Hubungi Kami
           </a>
