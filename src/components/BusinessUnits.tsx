@@ -9,12 +9,13 @@ interface DataUnitBisnis {
   tagline: string;
   deskripsi: string;
   fokus: string[];
+  tautan?: string;
 }
 
 const daftarUnitBisnis: DataUnitBisnis[] = [
   {
-    logo: "/units/ndaki-icon-clean.jpg",
-    nama: "NDaki",
+    logo: "/units/ndaki-symbol.png",
+    nama: "Ndaki",
     tagline: "Smart Hiking & Outdoor Ecosystem",
     deskripsi:
       "Platform teknologi berbasis digital ecosystem dan Artificial Intelligence untuk pengembangan solusi outdoor dan komunitas modern.",
@@ -24,6 +25,7 @@ const daftarUnitBisnis: DataUnitBisnis[] = [
       "Management Hiking",
       "Outdoor Technology Innovation",
     ],
+    tautan: "https://ndaki.site",
   },
   {
     logo: "/units/yho-icon-clean.jpg",
@@ -50,20 +52,39 @@ function gunakanAnimasiFadeUp(ref: React.RefObject<HTMLDivElement | null>) {
 }
 
 function KartuUnitBisnis({ unit, index }: { unit: DataUnitBisnis; index: number }) {
+  const heading = (
+    <div className="relative z-10 mb-6 flex items-center gap-4">
+      <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white ring-1 ring-[rgba(var(--warna-brand-rgb),0.15)]">
+        <img
+          src={unit.logo}
+          alt={`Logo ${unit.nama}`}
+          className={`h-full w-full ${unit.tautan ? "object-contain p-1" : "object-cover"}`}
+        />
+      </div>
+      <div>
+        <h3 className="text-2xl font-bold text-[var(--warna-teks-utama)] md:text-3xl">{unit.nama}</h3>
+        <p className="text-sm font-medium text-[var(--warna-aksen)]">{unit.tagline}</p>
+      </div>
+    </div>
+  );
+
   return (
     <div
       className="fade-up group relative overflow-hidden kartu-shadow rounded-2xl bg-[var(--warna-bg-permukaan)] p-8 transition-colors duration-500 hover:bg-[var(--warna-bg-permukaan-2)] lg:p-10"
       style={{ transitionDelay: `${index * 120}ms` }}
     >
-      <div className="relative z-10 mb-6 flex items-center gap-4">
-        <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white ring-1 ring-[rgba(var(--warna-brand-rgb),0.15)]">
-          <img src={unit.logo} alt={`Logo ${unit.nama}`} className="h-full w-full object-cover" />
-        </div>
-        <div>
-          <h3 className="text-2xl font-bold text-[var(--warna-teks-utama)] md:text-3xl">{unit.nama}</h3>
-          <p className="text-sm font-medium text-[var(--warna-aksen)]">{unit.tagline}</p>
-        </div>
-      </div>
+      {unit.tautan ? (
+        <a
+          href={unit.tautan}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--warna-brand)]"
+        >
+          {heading}
+        </a>
+      ) : (
+        heading
+      )}
 
       <p className="relative z-10 mb-7 text-sm leading-relaxed text-[var(--warna-teks-sekunder)] md:text-base">
         {unit.deskripsi}
